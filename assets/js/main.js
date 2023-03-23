@@ -60,16 +60,82 @@ const imgSliderEl = document.querySelector('.images');
 // set variable active at '0' for active images 
 let active = 0;
 
-// get array's elements image and add to DOM with class active
-images.forEach((img, i) => {
-   console.log(img.image);
+// get buttons element from the DOM
+const nextButtonElement = document.querySelector('.next')
+const prevButtonElement = document.querySelector('.prev')
 
-   // create variable with markup
-   const markup = `<img src="./assets/${img.image}" alt="" class="img-fluid ${i === active ? 'active' : ''}" >`
+addImages();
+buttonsClick();
 
-   console.log(markup);
+/* FUNCTIONS */
 
-   // add images to DOM
-   imgSliderEl.innerHTML += markup;
+// function for add images markup to DOM
+function addImages() {
+   // get array's elements image and add to DOM with class active
+   images.forEach((img, i) => {
+      console.log(img.image);
 
-});
+      // create variable with markup
+      const markup = `<img src="./assets/${img.image}" alt="" class="img-fluid ${i === active ? 'active' : ''}" >`
+
+      console.log(markup);
+
+      // add images to DOM
+      imgSliderEl.innerHTML += markup;
+
+   });
+
+}
+
+// function for buttons
+function buttonsClick() {
+   // Select all images 
+   const imageEl = document.querySelectorAll('img')
+
+   // Add event to prev button
+   prevButtonElement.addEventListener('click', function () {
+      console.log('prev');
+
+      const image = imageEl[active]
+      console.log(image);
+
+      // remove active class
+      image.classList.remove('active');
+
+      // check if the active image value is 0
+      if (active === 0) {
+         active = imageEl.length - 1;
+      } else {
+         active--
+      }
+
+      // get the next image and add 'active'
+      const nextImage = imageEl[active];
+      nextImage.classList.add('active');
+
+   })
+
+   // Add event to next button
+   nextButtonElement.addEventListener('click', function () {
+      console.log('next');
+
+      const image = imageEl[active];
+      console.log(image);
+
+      // remove active class
+      image.classList.remove('active');
+
+      // check if in value of the active variable is array lenght -1 
+      if (active === imageEl.length - 1) {
+         // if so set active image to zero
+         active = 0;
+      } else {
+         active++
+      }
+
+      // get the next image and add 'active'
+      const nextImage = imageEl[active];
+      nextImage.classList.add('active');
+
+   })
+}
