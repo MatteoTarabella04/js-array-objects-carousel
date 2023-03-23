@@ -10,8 +10,8 @@
 
 .slider .controls {
    top: 50%;
-   left: 50%;
-   transform: translateX(-50%);
+   left: 0;
+   transform: translateY(-50%);
 }
 
 .prev,
