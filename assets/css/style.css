@@ -24,3 +24,22 @@
    align-items: center;
    justify-content: center;
 }
+
+.thumbnail_sec {
+   max-height: 600px;
+   width: 10%;
+   top: 0;
+   left: 99%;
+}
+
+.thumbnail_sec img {
+   height: 120px;
+   width: 100%;
+   object-fit: cover;
+   padding: 0.5rem;
+}
+
+.img {
+   display: flex;
+   justify-content: center;
+}
