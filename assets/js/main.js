@@ -53,3 +53,23 @@ const images = [
       text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
    }
 ];
+
+// select slider element from DOM 
+const imgSliderEl = document.querySelector('.images');
+
+// set variable active at '0' for active images 
+let active = 0;
+
+// get array's elements image and add to DOM with class active
+images.forEach((img, i) => {
+   console.log(img.image);
+
+   // create variable with markup
+   const markup = `<img src="./assets/${img.image}" alt="" class="img-fluid ${i === active ? 'active' : ''}" >`
+
+   console.log(markup);
+
+   // add images to DOM
+   imgSliderEl.innerHTML += markup;
+
+});
