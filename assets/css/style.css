@@ -8,6 +8,21 @@
    display: none;
 }
 
+.img {
+   position: absolute;
+   bottom: 0;
+
+   width: 100%;
+
+   padding: 1rem;
+   color: white;
+   background-color: rgba(0, 0, 0, 0.774);
+}
+
+.img:not(.active_info) {
+   display: none;
+}
+
 .slider .controls {
    top: 50%;
    left: 0;
@@ -45,5 +60,6 @@
 
 .img {
    display: flex;
-   justify-content: center;
+   justify-content: space-evenly;
+   align-items: center;
 }
