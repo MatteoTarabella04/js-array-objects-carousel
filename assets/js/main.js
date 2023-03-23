@@ -54,9 +54,6 @@ const images = [
    }
 ];
 
-// select slider element from DOM 
-const imgSliderEl = document.querySelector('.images');
-
 // set variable active at '0' for active images 
 let active = 0;
 
@@ -66,6 +63,9 @@ const prevButtonElement = document.querySelector('.prev')
 
 addImages();
 buttonsClick();
+addThumbnail();
+
+
 
 /* FUNCTIONS */
 
@@ -74,6 +74,9 @@ function addImages() {
    // get array's elements image and add to DOM with class active
    images.forEach((img, i) => {
       console.log(img.image);
+
+      // select slider element from DOM 
+      const imgSliderEl = document.querySelector('.images');
 
       // create variable with markup
       const markup = `<img src="./assets/${img.image}" alt="" class="img-fluid ${i === active ? 'active' : ''}" >`
@@ -86,6 +89,27 @@ function addImages() {
    });
 
 }
+
+// function for add thumbnail markup to DOM
+function addThumbnail() {
+   // get array's elements image and add to DOM with class active
+   images.forEach((img) => {
+
+      // select thumbnail element from DOM 
+      const thumbnailEl = document.querySelector('.thumbnail_sec');
+
+      // create variable with markup
+      const markupThumb = `<img src="./assets/${img.image}" alt="">`
+
+      console.log(markupThumb);
+
+      // add images to DOM
+      thumbnailEl.insertAdjacentHTML('beforeend', markupThumb);
+
+   });
+
+}
+
 
 // function for buttons
 function buttonsClick() {
