@@ -71,7 +71,6 @@ buttonsClickInfo();
 addThumbnail();
 
 
-
 /* FUNCTIONS */
 
 // function for add images markup to DOM
@@ -250,3 +249,4 @@ function buttonsClickInfo() {
 
    })
 }
+
