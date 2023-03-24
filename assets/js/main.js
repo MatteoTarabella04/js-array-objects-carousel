@@ -85,7 +85,7 @@ function addImages() {
 
       // create variable with markup
       const markup = `
-      <div class="img ${i === active ? 'active_info' : ''}">
+      <div class="img ${i === active_info ? 'active_info' : ''}">
          <h3>${img.title}</h3>
          <p>${img.text}</p>
       </div>
