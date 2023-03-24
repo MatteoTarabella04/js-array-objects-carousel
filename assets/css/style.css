@@ -54,10 +54,6 @@
    padding: 0.5rem;
 }
 
-.thumbnail_sec img:hover {
-   opacity: 20%;
-}
-
 .img {
    display: flex;
    justify-content: space-evenly;
