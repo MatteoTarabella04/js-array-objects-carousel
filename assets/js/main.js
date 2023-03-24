@@ -56,6 +56,7 @@ const images = [
 
 // set variable active at '0' for active images 
 let active = 0;
+let active_info = 0;
 
 // get buttons element from the DOM
 const nextButtonElement = document.querySelector('.next')
@@ -64,6 +65,8 @@ const prevButtonElement = document.querySelector('.prev')
 addImages();
 
 buttonsClick();
+
+buttonsClickInfo();
 
 addThumbnail();
 
@@ -120,24 +123,24 @@ function buttonsClick() {
    // Select all images 
    const imageEl = document.querySelectorAll('img')
    
-   const infoEl = document.querySelectorAll('.img')
+  //const infoEl = document.querySelectorAll('.img')
 
    // Add event to prev button
    prevButtonElement.addEventListener('click', function () {
       console.log('prev');
 
       const image = imageEl[active];
-      const info = infoEl[active];
+      //const info = infoEl[active];
       console.log(image);
 
       // remove active class
       image.classList.remove('active');
-      info.classList.remove('active_info');
+      //info.classList.remove('active_info');
 
 
       // check if the active image value is 0
       if (active === 0) {
-         active = infoEl.length - 1;
+         active = imageEl.length - 1;
          
       } else {
          active--
@@ -145,9 +148,9 @@ function buttonsClick() {
 
       // get the next image and add 'active'
       const nextImage = imageEl[active];
-      const nextInfo = infoEl[active];
+      //const nextInfo = infoEl[active];
       nextImage.classList.add('active');
-      nextInfo.classList.add('active_info');
+      //nextInfo.classList.add('active_info');
 
 
    })
@@ -157,12 +160,12 @@ function buttonsClick() {
       console.log('next');
 
       const image = imageEl[active];
-      const infoNext = infoEl[active];
+      //const infoNext = infoEl[active];
       console.log(image);
 
       // remove active class
       image.classList.remove('active');
-      infoNext.classList.remove('active_info');
+      //infoNext.classList.remove('active_info');
 
       // check if in value of the active variable is array lenght -1 
       if (active == imageEl.length -1) {
@@ -174,9 +177,75 @@ function buttonsClick() {
 
       // get the next image and add 'active'
       const nextImage = imageEl[active];
-      const nextInfo = imageEl[active];
+      //const nextInfo = imageEl[active];
 
       nextImage.classList.add('active');
+      //nextInfo.classList.add('active_info');
+
+   })
+}
+// function for buttons
+function buttonsClickInfo() {
+   // Select all images 
+   //const imageEl = document.querySelectorAll('img')
+   
+   const infoEl = document.querySelectorAll('.img')
+
+   // Add event to prev button
+   prevButtonElement.addEventListener('click', function () {
+      console.log('prev');
+
+      //const image = imageEl[active];
+      const info = infoEl[active_info];
+      //console.log(image);
+
+      // remove active class
+      //image.classList.remove('active');
+      info.classList.remove('active_info');
+
+
+      // check if the active image value is 0
+      if (active_info === 0) {
+         active_info = infoEl.length - 1;
+         
+      } else {
+         active_info--
+      }
+
+      // get the next image and add 'active'
+      //const nextImage = imageEl[active];
+      const nextInfo = infoEl[active_info];
+      //nextImage.classList.add('active');
+      nextInfo.classList.add('active_info');
+
+
+   })
+
+   // Add event to next button
+   nextButtonElement.addEventListener('click', function () {
+      console.log('next');
+
+      //const image = imageEl[active];
+      const infoNext = infoEl[active_info];
+      //console.log(image);
+
+      // remove active class
+      //image.classList.remove('active');
+      infoNext.classList.remove('active_info');
+
+      // check if in value of the active variable is array lenght -1 
+      if (active_info == infoEl.length -1) {
+         // if so set active image to zero
+         active_info = 0;
+      } else {
+         active_info ++
+      }
+
+      // get the next image and add 'active'
+      //const nextImage = imageEl[active];
+      const nextInfo = infoEl[active_info];
+
+      //nextImage.classList.add('active');
       nextInfo.classList.add('active_info');
 
    })
