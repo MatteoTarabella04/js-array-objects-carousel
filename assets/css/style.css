@@ -54,6 +54,10 @@
    padding: 0.5rem;
 }
 
+.thumbnail_sec img:not(.active_thumb) {
+   opacity: 25%;
+}
+
 .img {
    display: flex;
    justify-content: space-evenly;
