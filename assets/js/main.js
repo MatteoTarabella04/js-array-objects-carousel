@@ -57,6 +57,7 @@ const images = [
 // set variable active at '0' for active images 
 let active = 0;
 let active_info = 0;
+let active_thumb = 0;
 
 // get buttons element from the DOM
 const nextButtonElement = document.querySelector('.next')
@@ -69,6 +70,10 @@ buttonsClick();
 buttonsClickInfo();
 
 addThumbnail();
+
+buttonsClickThumb();
+
+
 
 
 /* FUNCTIONS */
@@ -249,4 +254,65 @@ function buttonsClickInfo() {
 
    })
 }
+// function for thumbnail
+function buttonsClickThumb() {
 
+   // Select thumbs img 
+   const thumbEl = document.querySelectorAll('.thumbnail_sec > img')
+
+   // Add event to prev button
+   prevButtonElement.addEventListener('click', function () {
+      console.log('prev');
+
+      //const image = imageEl[active];
+      const thumb = thumbEl[active_thumb];
+      //console.log(image);
+
+      // remove active class
+      //image.classList.remove('active');
+      thumb.classList.remove('active_thumb');
+
+
+      // check if the active image value is 0
+      if (active_thumb === 0) {
+         active_thumb = thumbEl.length - 1;
+         
+      } else {
+         active_thumb--
+      }
+
+      // get the next image and add 'active'
+      //const nextImage = imageEl[active];
+      const nextThumb = thumbEl[active_thumb];
+      //nextImage.classList.add('active');
+      nextThumb.classList.add('active_thumb');
+
+
+   })
+
+   // Add event to next button
+   nextButtonElement.addEventListener('click', function () {
+      console.log('next');
+
+      const thumbNext = thumbEl[active_thumb];
+
+      // remove active class
+      thumbNext.classList.remove('active_thumb');
+
+      // check if in value of the active variable is array lenght -1 
+      if (active_thumb == thumbEl.length -1) {
+         // if so set active image to zero
+         active_thumb = 0;
+      } else {
+         active_thumb ++
+      }
+
+      // get the next image and add 'active'
+      //const nextImage = imageEl[active];
+      const nextThumb= thumbEl[active_thumb];
+
+      //nextImage.classList.add('active');
+      nextThumb.classList.add('active_thumb');
+
+   })
+}
