@@ -141,7 +141,7 @@ function buttonsClick() {
       // check if the active image value is 0
       if (active === 0) {
          active = imageEl.length - 1;
-         
+
       } else {
          active--
       }
@@ -163,7 +163,7 @@ function buttonsClick() {
       image.classList.remove('active');
 
       // check if in value of the active variable is array lenght -1 
-      if (active == imageEl.length -1) {
+      if (active == imageEl.length - 1) {
          // if so set active image to zero
          active = 0;
       } else {
@@ -178,7 +178,7 @@ function buttonsClick() {
 }
 // function for buttons
 function buttonsClickInfo() {
-   
+
    const infoEl = document.querySelectorAll('.img')
 
    // Add event to prev button
@@ -193,7 +193,7 @@ function buttonsClickInfo() {
       // check if the active image value is 0
       if (active_info === 0) {
          active_info = infoEl.length - 1;
-         
+
       } else {
          active_info--
       }
@@ -213,11 +213,11 @@ function buttonsClickInfo() {
       infoNext.classList.remove('active_info');
 
       // check if in value of the active variable is array lenght -1 
-      if (active_info == infoEl.length -1) {
+      if (active_info == infoEl.length - 1) {
          // if so set active image to zero
          active_info = 0;
       } else {
-         active_info ++
+         active_info++
       }
 
       const nextInfo = infoEl[active_info];
@@ -231,6 +231,15 @@ function buttonsClickThumb() {
    // Select thumbs img 
    const thumbEl = document.querySelectorAll('.thumbnail_sec > img')
 
+   thumbEl.forEach((thumb, i) => {
+      thumb.addEventListener('click', () => {
+         document.querySelector('.thumbnail_sec > img.active_thumb').classList.remove('active_thumb');
+         thumb.classList.add('.active_thumb');
+         document.querySelector('.images > img.active').classList.remove('active');
+         document.querySelectorAll('.images > img')[i].classList.add('active');
+      })
+   })
+
    // Add event to prev button
    prevButtonElement.addEventListener('click', function () {
       console.log('prev');
@@ -242,7 +251,7 @@ function buttonsClickThumb() {
       // check if the active image value is 0
       if (active_thumb === 0) {
          active_thumb = thumbEl.length - 1;
-         
+
       } else {
          active_thumb--
       }
@@ -262,15 +271,19 @@ function buttonsClickThumb() {
       thumbNext.classList.remove('active_thumb');
 
       // check if in value of the active variable is array lenght -1 
-      if (active_thumb == thumbEl.length -1) {
+      if (active_thumb == thumbEl.length - 1) {
          // if so set active image to zero
          active_thumb = 0;
       } else {
-         active_thumb ++
+         active_thumb++
       }
 
-      const nextThumb= thumbEl[active_thumb];
+      const nextThumb = thumbEl[active_thumb];
       nextThumb.classList.add('active_thumb');
 
    })
+}
+// function for thumb select img
+function selectThumbImg() {
+
 }
