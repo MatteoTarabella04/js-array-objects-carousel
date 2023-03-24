@@ -124,23 +124,19 @@ function addThumbnail() {
 
 // function for buttons
 function buttonsClick() {
+
    // Select all images 
    const imageEl = document.querySelectorAll('img')
-   
-  //const infoEl = document.querySelectorAll('.img')
 
    // Add event to prev button
    prevButtonElement.addEventListener('click', function () {
       console.log('prev');
 
       const image = imageEl[active];
-      //const info = infoEl[active];
       console.log(image);
 
       // remove active class
       image.classList.remove('active');
-      //info.classList.remove('active_info');
-
 
       // check if the active image value is 0
       if (active === 0) {
@@ -152,10 +148,7 @@ function buttonsClick() {
 
       // get the next image and add 'active'
       const nextImage = imageEl[active];
-      //const nextInfo = infoEl[active];
       nextImage.classList.add('active');
-      //nextInfo.classList.add('active_info');
-
 
    })
 
@@ -164,12 +157,10 @@ function buttonsClick() {
       console.log('next');
 
       const image = imageEl[active];
-      //const infoNext = infoEl[active];
       console.log(image);
 
       // remove active class
       image.classList.remove('active');
-      //infoNext.classList.remove('active_info');
 
       // check if in value of the active variable is array lenght -1 
       if (active == imageEl.length -1) {
@@ -181,17 +172,12 @@ function buttonsClick() {
 
       // get the next image and add 'active'
       const nextImage = imageEl[active];
-      //const nextInfo = imageEl[active];
-
       nextImage.classList.add('active');
-      //nextInfo.classList.add('active_info');
 
    })
 }
 // function for buttons
 function buttonsClickInfo() {
-   // Select all images 
-   //const imageEl = document.querySelectorAll('img')
    
    const infoEl = document.querySelectorAll('.img')
 
@@ -199,14 +185,10 @@ function buttonsClickInfo() {
    prevButtonElement.addEventListener('click', function () {
       console.log('prev');
 
-      //const image = imageEl[active];
       const info = infoEl[active_info];
-      //console.log(image);
 
       // remove active class
-      //image.classList.remove('active');
       info.classList.remove('active_info');
-
 
       // check if the active image value is 0
       if (active_info === 0) {
@@ -216,12 +198,8 @@ function buttonsClickInfo() {
          active_info--
       }
 
-      // get the next image and add 'active'
-      //const nextImage = imageEl[active];
       const nextInfo = infoEl[active_info];
-      //nextImage.classList.add('active');
       nextInfo.classList.add('active_info');
-
 
    })
 
@@ -229,12 +207,9 @@ function buttonsClickInfo() {
    nextButtonElement.addEventListener('click', function () {
       console.log('next');
 
-      //const image = imageEl[active];
       const infoNext = infoEl[active_info];
-      //console.log(image);
 
       // remove active class
-      //image.classList.remove('active');
       infoNext.classList.remove('active_info');
 
       // check if in value of the active variable is array lenght -1 
@@ -245,11 +220,7 @@ function buttonsClickInfo() {
          active_info ++
       }
 
-      // get the next image and add 'active'
-      //const nextImage = imageEl[active];
       const nextInfo = infoEl[active_info];
-
-      //nextImage.classList.add('active');
       nextInfo.classList.add('active_info');
 
    })
@@ -264,14 +235,9 @@ function buttonsClickThumb() {
    prevButtonElement.addEventListener('click', function () {
       console.log('prev');
 
-      //const image = imageEl[active];
       const thumb = thumbEl[active_thumb];
-      //console.log(image);
 
-      // remove active class
-      //image.classList.remove('active');
       thumb.classList.remove('active_thumb');
-
 
       // check if the active image value is 0
       if (active_thumb === 0) {
@@ -281,12 +247,8 @@ function buttonsClickThumb() {
          active_thumb--
       }
 
-      // get the next image and add 'active'
-      //const nextImage = imageEl[active];
       const nextThumb = thumbEl[active_thumb];
-      //nextImage.classList.add('active');
       nextThumb.classList.add('active_thumb');
-
 
    })
 
@@ -307,11 +269,7 @@ function buttonsClickThumb() {
          active_thumb ++
       }
 
-      // get the next image and add 'active'
-      //const nextImage = imageEl[active];
       const nextThumb= thumbEl[active_thumb];
-
-      //nextImage.classList.add('active');
       nextThumb.classList.add('active_thumb');
 
    })
